@@ -1,5 +1,7 @@
 suites:
     core:
         spec_prefix: phpspec
+        namespace: Application
+        psr4_prefix: Application
         src_path: src
-        spec_path: specs
+        spec_path: tests
