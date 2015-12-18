@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Ensure apache2 log directory exists
+mkdir -p /var/www/var/log/apache2
+
+# Run our deployment script
+./opt/deployment/development/deploy
+
+# Fix cache/log permissions and run
+chown -R www-data:www-data var/* web/bundles/*
+service apache2 start
+
+# Tail logs
+## There has to be a better way to do this?
+tail -f var/log/*.log var/log/*/*.log var/log/*/*/*.log

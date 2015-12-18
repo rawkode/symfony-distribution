@@ -1,0 +1,5 @@
+#!/bin/bash
+php bin/symfony --env=development cache:clear
+php bin/symfony --env=development assets:install --symlink web
+
+touch var/log/application/development/monolog.log

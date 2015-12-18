@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:monolog="http://symfony.com/schema/dic/monolog"
+           xmlns="http://symfony.com/schema/dic/services"
+        >
+    <imports>
+        <import resource="../configuration.xml"/>
+        <import resource="parameters.xml"/>
+    </imports>
+
+    <monolog:config>
+        <monolog:handler name="symfony" type="stream" level="error" path="%kernel.logs_dir%/symfony.log"/>
+    </monolog:config>
+
+</container>

@@ -1,0 +1,27 @@
+application:
+    image: php:5.6-apache
+    working_dir: /var/www
+    entrypoint: /var/www/opt/docker/development/entrypoint
+    volumes:
+        - ./opt/apache2/development/apache2.conf:/etc/apache2/apache2.conf
+        - ./opt/apache2/development/virtual-host.conf:/etc/apache2/sites-enabled/virtual-host.conf
+        - ./opt/php/development:/usr/local/etc/php/conf.d
+        - ./:/var/www
+    volumes_from:
+        - application-cache-and-logs
+    ports:
+        - 10000:80
+
+application-cache-and-logs:
+    image: busybox
+    volumes:
+        - /var/www/var/cache
+        - /var/www/var/log
+
+# #database:
+# #  image: postgres
+# #  environment:
+# #    - POSTGRES_PASSWORD: postgres
+#
+# #memcached:
+# #  - image: memcached

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:framework="http://symfony.com/schema/dic/symfony"
+           xmlns:monolog="http://symfony.com/schema/dic/monolog"
+           xmlns="http://symfony.com/schema/dic/services"
+        >
+
+    <imports>
+        <import resource="../configuration.xml"/>
+        <import resource="parameters.xml"/>
+    </imports>
+
+    <framework:config test="true" />
+
+    <monolog:config>
+        <monolog:handler name="symfony" type="console" level="error"/>
+    </monolog:config>
+
+</container>
+

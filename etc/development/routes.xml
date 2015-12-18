@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://symfony.com/schema/routing"
+        xsi:schemaLocation="http://symfony.com/schema/routing http://symfony.com/schema/routing/routing-1.0.xsd"
+        >
+
+    <import resource="../routes.xml"/>
+    <import resource="@WebProfilerBundle/Resources/config/routing/wdt.xml" prefix="/_wdt"/>
+    <import resource="@WebProfilerBundle/Resources/config/routing/profiler.xml" prefix="/_profiler"/>
+
+</routes>

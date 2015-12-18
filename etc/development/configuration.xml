@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:framework="http://symfony.com/schema/dic/symfony"
+           xmlns:monolog="http://symfony.com/schema/dic/monolog"
+           xmlns:web-profiler="http://symfony.com/schema/dic/webprofiler"
+           xmlns="http://symfony.com/schema/dic/services">
+
+    <imports>
+        <import resource="../configuration.xml"/>
+        <import resource="parameters.xml"/>
+    </imports>
+
+    <framework:config>
+        <framework:profiler only-exceptions="false"/>
+    </framework:config>
+
+    <monolog:config>
+        <monolog:handler name="symfony" type="stream" level="debug" path="%kernel.logs_dir%/monolog.log"/>
+    </monolog:config>
+
+    <web-profiler:config
+            toolbar="true"
+            intercept-redirects="false"
+            />
+
+</container>

@@ -1,0 +1,5 @@
+suites:
+    core:
+        spec_prefix: phpspec
+        src_path: src
+        spec_path: specs

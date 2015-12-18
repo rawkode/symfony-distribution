@@ -1,0 +1,34 @@
+{
+    "autoload": {
+        "psr-4": {
+            "": "boot//",
+            "Application\\": "src//"
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "vendor-dir": "lib"
+    },
+    "extra": {
+        "symfony-app-dir": "boot",
+        "symfony-assets-install": "relative",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "web"
+    },
+    "require": {
+        "doctrine/doctrine-bundle": "^1.5",
+        "php": ">=5.5",
+        "symfony/console": "^3.0",
+        "symfony/framework-bundle": "^3.0",
+        "symfony/monolog-bundle": "^2.8",
+        "symfony/symfony": "^3.0",
+        "symfony/twig-bundle": "^3.0",
+        "symfony/asset": "^3.0"
+    },
+    "require-dev": {
+        "behat/behat": "dev-master",
+        "phpspec/phpspec": "^2.1",
+        "phpunit/phpunit": "^4.4"
+    }
+}

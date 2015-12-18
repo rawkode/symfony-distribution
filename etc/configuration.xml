@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container
+    xmlns:framework="http://symfony.com/schema/dic/symfony"
+    xmlns:twig="http://symfony.com/schema/dic/twig"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://symfony.com/schema/dic/services"
+    xsi:schemaLocation="http://symfony.com/schema/dic/symfony
+        http://symfony.com/schema/dic/symfony/symfony-1.0.xsd
+        http://symfony.com/schema/dic/twig http://symfony.com/schema/dic/twig/twig-1.0.xsd">
+
+    <imports>
+        <import resource="services.xml"/>
+    </imports>
+
+    <framework:config>
+        <framework:assets/>
+        <framework:router resource="%kernel.root_dir%/../etc/%kernel.environment%/routes.xml"/>
+        <framework:templating>
+            <framework:engine>twig</framework:engine>
+        </framework:templating>
+    </framework:config>
+
+    <twig:config>
+        <twig:path namespace="Application">%kernel.root_dir%/../srv/twig/</twig:path>
+    </twig:config>
+
+</container>
