@@ -1,0 +1,29 @@
+#!/usr/bin/env php
+<?php
+
+set_time_limit(0);
+
+require_once __DIR__.'/../boot/autoload.php';
+
+$input = new Symfony\Component\Console\Input\ArgvInput();
+
+$environmentName =
+    $input->getParameterOption(['--env', '-e'], null)
+    ?: getenv('SYMFONY_ENVIRONMENT')
+    ?: getenv('SYMFONY_ENV')
+    ?: 'development';
+
+$isDebugEnabled =
+    getenv('SYMFONY_DEBUG')
+    && $environmentName !== 'production'
+    && $input->getParameterOption(['--no-debug'], true)
+;
+
+if ($isDebugEnabled === true) {
+    Symfony\Component\Debug\Debug::enable();
+}
+
+$kernel = new AppKernel($environmentName, $isDebugEnabled);
+
+$application = new Symfony\Bundle\FrameworkBundle\Console\Application($kernel);
+$application->run($input);
