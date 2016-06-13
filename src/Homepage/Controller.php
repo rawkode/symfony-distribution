@@ -1,10 +1,10 @@
 <?php
 
-namespace Application\Controllers;
+namespace Application\Homepage;
 
 use Symfony\Component\HttpFoundation\Response;
 
-class HelloWorld
+class Controller
 {
     /** @var \Twig_Environment $twigEnvironment */
     private $twigEnvironment;
@@ -17,7 +17,7 @@ class HelloWorld
     public function __invoke()
     {
         return new Response(
-            $this->twigEnvironment->render('@Application/HelloWorld.html.twig', []),
+            $this->twigEnvironment->render('@Application/homepage.html.twig', []),
             Response::HTTP_OK
         );
     }
